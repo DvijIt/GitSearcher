@@ -1,43 +1,43 @@
-import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-import { fetchUsers } from './gateway';
+import React, {useState, useEffect, useCallback} from 'react';
+import {Link} from 'react-router-dom';
+import {fetchUsers} from './gateway';
+import ItemUser from "./ItemUser";
 
-const Users = ():JSX.Element => {
+const Users = (): JSX.Element => {
 
-    const [users, setUsers] = useState<any>([]);
+    const [users, setUsers] = useState<[]>([]);
+    const [searchQuery, setSearchQuery] = useState<string>('');
 
-    useEffect(() => {
-        try {
-            fetchUsers()
-                .then(usersData => setUsers(usersData))
-        } catch (e) {
-            console.log(e.message)
-        }
-    }, [users])
-
-    interface User {
-        id?: number,
-        login?: string,
-        avatar_url?: string
+    const handleInput = (e:any) => {
+        setSearchQuery(e.target.value);
     }
+    useEffect(() => {
+        if (searchQuery.length > 3) {
+            fetchUsers(searchQuery)
+                .then(usersData => setUsers(usersData.items.splice(0, 3)))
+        }
+    }, [searchQuery])
+
     return (
-        <ul className="navigation">
-            {
-                users.slice(10).map((user: { id: string | number | null | undefined; login: {} | null | undefined; avatar_url: string | undefined; }): User => {
-                    // @ts-ignore
-                    // @ts-ignore
-                    return (
-                        <li key={user.id}>
-                            <span>{user.login}</span>
-                            <img src={user.avatar_url}/>
-                        </li>
-                    )
-                })
-            }
-            <li className="navigation__item">
-                <Link to="/users/github">Github</Link>
-            </li>
-        </ul>
+        <>
+            <div>
+                <label htmlFor="inputSearch">Search Users</label>
+                <input
+                    type="text"
+                    name="inputSearch"
+                    value={searchQuery}
+                    onInput={handleInput}/>
+            </div>
+            <ul className="navigation">
+                {users.map(user =>
+                    (
+                        <ItemUser {...user}/>
+                    ))}
+                <li className="navigation__item">
+                    <Link to="/users/github">Github</Link>
+                </li>
+            </ul>
+        </>
     )
 }
 export default Users;
