@@ -1,0 +1,14 @@
+.users__list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.users__list-item-avatar {
+    max-width: 100px;
+}
