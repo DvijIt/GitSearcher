@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/DvijIt/GitSearcher/static/css/main.9035e6ed.chunk.css",
+    "main.js": "/DvijIt/GitSearcher/static/js/main.ec53dc7b.chunk.js",
+    "main.js.map": "/DvijIt/GitSearcher/static/js/main.ec53dc7b.chunk.js.map",
+    "runtime-main.js": "/DvijIt/GitSearcher/static/js/runtime-main.b81c20f6.js",
+    "runtime-main.js.map": "/DvijIt/GitSearcher/static/js/runtime-main.b81c20f6.js.map",
+    "static/js/2.fa259279.chunk.js": "/DvijIt/GitSearcher/static/js/2.fa259279.chunk.js",
+    "static/js/2.fa259279.chunk.js.map": "/DvijIt/GitSearcher/static/js/2.fa259279.chunk.js.map",
+    "static/js/3.6820e9fd.chunk.js": "/DvijIt/GitSearcher/static/js/3.6820e9fd.chunk.js",
+    "static/js/3.6820e9fd.chunk.js.map": "/DvijIt/GitSearcher/static/js/3.6820e9fd.chunk.js.map",
+    "index.html": "/DvijIt/GitSearcher/index.html",
+    "static/css/main.9035e6ed.chunk.css.map": "/DvijIt/GitSearcher/static/css/main.9035e6ed.chunk.css.map",
+    "static/js/2.fa259279.chunk.js.LICENSE.txt": "/DvijIt/GitSearcher/static/js/2.fa259279.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b81c20f6.js",
+    "static/js/2.fa259279.chunk.js",
+    "static/css/main.9035e6ed.chunk.css",
+    "static/js/main.ec53dc7b.chunk.js"
+  ]
+}
