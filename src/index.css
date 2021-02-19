@@ -12,6 +12,16 @@ code {
     monospace;
 }
 
+.page__content {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 40px 15px;
+}
+
+.page__title {
+    text-align: center;
+}
+
 img {
     max-width: 100%;
 }

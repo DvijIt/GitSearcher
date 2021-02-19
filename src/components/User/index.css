@@ -1,0 +1,22 @@
+.user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-avatar {
+    width: 200px;
+}
+
+.user-data {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.repo__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

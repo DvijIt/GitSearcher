@@ -1,31 +1,12 @@
-import React, { useState, useEffect, FC } from "react";
-import { fetchUsers } from "../../gateway";
+import React, { FC } from "react";
 import UserItem from "./UserItem";
 import { UserInterface } from "../../interfaces/interfaces";
 import SearchField from "../SearchField";
+import { useUsers } from "../../hooks/useUsers";
 import "./index.css";
 
 const Users: FC = () => {
-  const [users, setUsers] = useState<[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
-
-  const handleInput = (event: React.FormEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
-
-  useEffect(() => {
-    if (searchQuery.length > 3) {
-      setLoading(true);
-      fetchUsers(searchQuery)
-        .then((usersData) => setUsers(usersData.items.splice(0, 3)))
-        .then(() => setLoading(false))
-        .catch(({ message }) => {
-          throw new Error(message);
-        });
-    }
-  }, [searchQuery]);
-
+  const { users, loading, searchQuery, handleInput } = useUsers();
   return (
     <>
       <SearchField handleInput={handleInput} query={searchQuery} />
@@ -41,4 +22,5 @@ const Users: FC = () => {
     </>
   );
 };
+
 export default Users;
