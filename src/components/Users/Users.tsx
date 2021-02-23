@@ -9,7 +9,11 @@ const Users: FC = () => {
   const { users, loading, searchQuery, handleInput } = useUsers();
   return (
     <>
-      <SearchField handleInput={handleInput} query={searchQuery} />
+      <SearchField
+        handleInput={handleInput}
+        query={searchQuery}
+        placeholder="Search for Users"
+      />
       {loading ? (
         <h1>Loading...</h1>
       ) : (

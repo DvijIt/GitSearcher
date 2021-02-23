@@ -1,7 +1,22 @@
-import React from "react";
+import React, { FC, useEffect, useState } from "react";
+import { useUser } from "../../hooks/useUser";
 import { UserInterface } from "../../interfaces/interfaces";
+// import { UserInterface } from "../../interfaces/interfaces";
 
-const UserInfo = (user: UserInterface) => {
+const UserInfo: FC = () => {
+  const [user, setUser] = useState<UserInterface | null>(null);
+
+  const { fetchUserInfo } = useUser();
+  useEffect(() => {
+    fetchUserInfo().then((res) => {
+      setUser(res);
+    });
+  }, []);
+
+  if (!user) {
+    return null;
+  }
+
   const {
     avatar_url,
     created_at,
@@ -11,6 +26,7 @@ const UserInfo = (user: UserInterface) => {
     location,
     name,
   } = user;
+
   return (
     <div className="user-container">
       <div className="user-avatar">

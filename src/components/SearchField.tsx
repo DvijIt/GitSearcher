@@ -4,11 +4,21 @@ interface SearchFieldProps {
   // eslint-disable-next-line no-unused-vars
   handleInput: (event: React.FormEvent<HTMLInputElement>) => void;
   query: string;
+  placeholder: string;
 }
-const SearchField = ({ handleInput, query }: SearchFieldProps): JSX.Element => (
+const SearchField = ({
+  handleInput,
+  query,
+  placeholder,
+}: SearchFieldProps): JSX.Element => (
   <div>
-    <label htmlFor="inputSearch">Search Users</label>
-    <input type="text" name="inputSearch" value={query} onInput={handleInput} />
+    <input
+      type="text"
+      name="inputSearch"
+      value={query}
+      onInput={handleInput}
+      placeholder={placeholder}
+    />
   </div>
 );
 
